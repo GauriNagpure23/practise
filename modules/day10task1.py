@@ -1,14 +1,15 @@
+# writing student data to csv
+
 import csv
 import os
 
 FILE_PATH = "/home/gauri-nagpure/Downloads/BMI/phonebook.csv"
 
-# -------------------------------
 # Create Default Dirty Dataset
-# -------------------------------
+
 def create_default_file():
     if os.path.exists(FILE_PATH):
-        print("📂 File already exists (no overwrite)")
+        print("File already exists (no overwrite)")
         return
 
     with open(FILE_PATH, "w", newline="") as f:
@@ -86,12 +87,10 @@ def create_default_file():
 
         writer.writerows(students)
 
-    print("✅ 50 Dirty student records created")
+    print("50 Dirty student records created")
 
 
-# -------------------------------
 # Append Student
-# -------------------------------
 def add_student():
     with open(FILE_PATH, "a", newline="") as f:
         writer = csv.writer(f)
@@ -104,23 +103,21 @@ def add_student():
 
         writer.writerow([name, phone, age, cls, per])
 
-    print("✅ Student added")
+    print("Student added")
 
 
-# -------------------------------
 # Read File
-# -------------------------------
+
 def read_students():
     with open(FILE_PATH, "r") as f:
         reader = csv.reader(f)
-        print("\n---- DATASET ----")
+        print("\n DATASET ")
         for row in reader:
             print(row)
 
 
-# -------------------------------
+
 # Delete Student by Name
-# -------------------------------
 def delete_student():
     name_to_delete = input("Enter Name to delete: ")
 
@@ -133,12 +130,12 @@ def delete_student():
             if row and row[0] != name_to_delete:
                 writer.writerow(row)
 
-    print("❌ Student deleted")
+    print("Student deleted")
 
 
-# -------------------------------
+
 # MENU
-# -------------------------------
+
 def menu():
     create_default_file()
 
