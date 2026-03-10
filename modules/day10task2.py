@@ -1,3 +1,5 @@
+# read csv and display summary
+
 import pandas as pd
 import logging
 

@@ -1,7 +1,10 @@
-import csv
+# student phonebook in a file
 
+import csv
+# empty phonebook dictionary
 phonebook = {}
 
+# loading csv 
 def load_csv():
     try:
         with open("phonebook.csv", "r", newline="") as file:
@@ -10,7 +13,7 @@ def load_csv():
                 phonebook[row["name"]] = row["phone"]
     except FileNotFoundError:
         save_to_csv()
-
+# write operation in csv
 def save_to_csv():
     with open("phonebook.csv", "w", newline="") as file:
         fieldnames = ["name", "phone"]
@@ -19,6 +22,7 @@ def save_to_csv():
         for name, phone in phonebook.items():
             writer.writerow({"name": name, "phone": phone})
 
+# append/add operation in csv
 def add_contact():
     name = input("Enter name: ")
     number = input("Enter phone number: ")
@@ -26,6 +30,7 @@ def add_contact():
     save_to_csv()
     print("Contact added & saved successfully!")
 
+# search operation in csv
 def search_contact():
     name = input("Enter name to search: ")
     if name in phonebook:
@@ -33,6 +38,7 @@ def search_contact():
     else:
         print("Contact not found")
 
+# deleteing contact 
 def delete_contact():
     name = input("Enter name to delete: ")
     if name in phonebook:
@@ -42,13 +48,14 @@ def delete_contact():
     else:
         print("Contact not found")
 
+# read operation in csv
 def view_all():
     for name, number in phonebook.items():
         print(name, ":", number)
 
 def summary():
     print("Total contacts:", len(phonebook))
-
+# menu
 menu = {
     "1": add_contact,
     "2": search_contact,

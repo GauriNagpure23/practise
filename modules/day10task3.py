@@ -1,5 +1,6 @@
 """
-Docstring for day10task3
+writing logs to text file
+
 Recording what the program is doing (events, actions, errors, status messages) into a .txt or .log file instead of only showing them on the screen.
 Debug errors
 
